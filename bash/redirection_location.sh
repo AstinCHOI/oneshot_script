@@ -11,7 +11,10 @@ while IFS='' read -r line || [[ -n "$line" ]]; do
     # For URLencode
 	# line=$(python -c "import sys, urllib as ul; print ul.quote_plus('$line')")
 	kurl=$(curl -s -I -X GET $line | grep Location)
-	echo "${kurl:10}" # Location :
+	location="${kurl:10}"
+	if [[ -z $location ]]; then
+		echo "## $line"
+	else
+		echo "${kurl:10}" # Location :
+	fi
 done < "$filename"
-
-
