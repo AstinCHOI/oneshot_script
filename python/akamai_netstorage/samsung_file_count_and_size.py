@@ -2,10 +2,11 @@ from akamai.netstorage import Netstorage, NetstorageError
 import xml.etree.ElementTree as ET
 
 
-NS_HOSTNAME = ''
-NS_KEYNAME = ''
-NS_KEY = ''
-NS_CPCODE = ''
+NS_HOSTNAME = 'samsung_flagship_image_imc_eu-nsu.akamaihd.net'
+NS_KEYNAME = 'jamespark_IMC_EU'
+NS_KEY = 'lP1WSEN2C6xUg64u0aifgWtxrIqdU60WB4X6ff0l5fo2qq8x4t'
+NS_CPCODE = '606569'
+
 
 ns = Netstorage(NS_HOSTNAME, NS_KEYNAME, NS_KEY, ssl=False)
 info = {}
@@ -28,7 +29,7 @@ def recursive(items):
 				except:
 					pass
 
-ok, res = ns.dir('/' + NS_CPCODE + '/path')
+ok, res = ns.dir('/' + NS_CPCODE + '/uk/galaxy-note8/accessories')
 
 if ok:
 	xml_tree = ET.fromstring(res.content)
