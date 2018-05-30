@@ -27,14 +27,6 @@ def top_ips(filename):
     sorted_ip = sorted(ip_dict.items(), key=lambda x: x[1], reverse=True)
     print(sorted_ip[:10])
 
-
-class Node:
-    def __init__(self, ip=None, num=0, nxt=None):
-        self.ip = ip
-        self.num = num
-        self.nxt = nxt
-
-
 def partition(array, begin, end):
     pivot = begin
     for i in range(begin+1, end+1):
